@@ -1257,11 +1257,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Draco\\Desktop\\AngularDotNet\\DotNet6\\UsersLogInAPI\\UsersLogInAPI\\UsersLogInAPI.csproj",
+      "projectUniqueName": "C:\\Users\\Draco\\Documents\\GitHub\\Angular16DotNet6\\DotNet6\\UsersLogInAPI\\UsersLogInAPI\\UsersLogInAPI.csproj",
       "projectName": "UsersLogInAPI",
-      "projectPath": "C:\\Users\\Draco\\Desktop\\AngularDotNet\\DotNet6\\UsersLogInAPI\\UsersLogInAPI\\UsersLogInAPI.csproj",
+      "projectPath": "C:\\Users\\Draco\\Documents\\GitHub\\Angular16DotNet6\\DotNet6\\UsersLogInAPI\\UsersLogInAPI\\UsersLogInAPI.csproj",
       "packagesPath": "C:\\Users\\Draco\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Draco\\Desktop\\AngularDotNet\\DotNet6\\UsersLogInAPI\\UsersLogInAPI\\obj\\",
+      "outputPath": "C:\\Users\\Draco\\Documents\\GitHub\\Angular16DotNet6\\DotNet6\\UsersLogInAPI\\UsersLogInAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Draco\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ahDxFCOUs9DwANFV5XiTEVWjTtuzZUAsa2LtrkY2knIdFKMR142nyR6NwhIb0z+ZiiI0JWG10otW2KdA0zpIzw==",
+  "dgSpecHash": "EB2RbFl+TIiDoHdD7YtW+K6FokIT5M0mhZOBNeRBhY1MVMgVwpVmgfRXo9MKp8d3JDw+TLGNbdOkhDuUi08O+Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Draco\\Desktop\\AngularDotNet\\DotNet6\\UsersLogInAPI\\UsersLogInAPI\\UsersLogInAPI.csproj",
+  "projectFilePath": "C:\\Users\\Draco\\Documents\\GitHub\\Angular16DotNet6\\DotNet6\\UsersLogInAPI\\UsersLogInAPI\\UsersLogInAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Draco\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Draco\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.5\\microsoft.entityframeworkcore.7.0.5.nupkg.sha512",
