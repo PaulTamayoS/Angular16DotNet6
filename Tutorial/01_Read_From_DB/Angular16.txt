@@ -66,6 +66,7 @@ If environment folder does not exist, add it by:
 
 Add the corresponding data to each one of the two environments
 
+
 export const environment = 
 {
     production: true, //Change for false in the dev environment file
@@ -76,6 +77,7 @@ export const environment =
 
 
 App.Components.ts
+
 
 import { Component } from '@angular/core';
 import { Users } from './models/users';
@@ -104,6 +106,7 @@ export class AppComponent {
 
 App.Componenet.html
 
+
 <table>
   <thead>
     <th>Name</th>
@@ -123,6 +126,7 @@ App.Componenet.html
 
 
 App.module.ts
+
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
