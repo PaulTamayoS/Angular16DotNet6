@@ -8,8 +8,9 @@ Name it “UsersLogInAPI”, and in location, select the folder “DotNet6” that we cr
 You can eliminate the example class “WeatherForecast.cs” and the controller “WeatherForecastController.cs”
 
 In the project “UserLogInAPI”, create a new class “User”
-using System.ComponentModel.DataAnnotations.Schema;
 
+
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace UsersLogInAPI
 {
