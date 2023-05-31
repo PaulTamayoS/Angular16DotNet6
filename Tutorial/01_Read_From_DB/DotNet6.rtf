@@ -1,0 +1,165 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1036{\fonttbl{\f0\fswiss\fprq2\fcharset0 Calibri;}{\f1\froman\fprq2\fcharset0 Times New Roman;}{\f2\fmodern\fprq1\fcharset0 Cascadia Mono;}{\f3\fnil\fcharset0 Courier New;}{\f4\fnil\fcharset2 Symbol;}}
+{\colortbl ;\red0\green0\blue255;\red0\green0\blue0;\red163\green21\blue21;\red43\green145\blue175;\red46\green117\blue182;\red0\green128\blue0;}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\widctlpar\sa160\sl252\slmult1\kerning2\f0\fs22\lang1033 Using Visual Studio 2022 Community\par
+\par
+Create a new project \ldblquote ASP.NET Core Web API\rdblquote .\par
+Name it \ldblquote UsersLogInAPI\rdblquote , and in location, select the folder \ldblquote DotNet6\rdblquote  that we created earlier. Click on next. Select the Framework \ldblquote .NET 6.0\rdblquote . Check \ldblquote Use controllers\rdblquote  and \ldblquote Enable OpenAPI support\rdblquote . Click on the button create.\par
+You can eliminate the example class \ldblquote WeatherForecast.cs\rdblquote  and the controller \ldblquote WeatherForecastController.cs\rdblquote\par
+In the project \ldblquote UserLogInAPI\rdblquote , create a new class \ldblquote User\rdblquote\par
+\trowd\trgaph108\trleft-108\trbrdrl\brdrs\brdrw10 \trbrdrt\brdrs\brdrw10 \trbrdrr\brdrs\brdrw10 \trbrdrb\brdrs\brdrw10 \trpaddl108\trpaddr108\trpaddfl3\trpaddfr3
+\clbrdrl\brdrw10\brdrs\clbrdrt\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\clbrdrb\brdrw10\brdrs \cellx9514 
+\pard\intbl\widctlpar\cf1\kerning0\f2\fs19 using\cf2  System.ComponentModel.DataAnnotations.Schema;\par
+\par
+\cf1 namespace\cf2  UsersLogInAPI\par
+\{\par
+    [Table(\cf3 "test_users"\cf2 )]\par
+    \cf1 public\cf2  \cf1 class\cf2  \cf4 User\cf2\par
+    \{\par
+        [Column(\cf3 "id"\cf2 )]\par
+        \cf1 public\cf2  \cf1 int\cf2  Id \{ \cf1 get\cf2 ; \cf1 set\cf2 ; \}\par
+        [Column(\cf3 "name"\cf2 )]\par
+        \cf1 public\cf2  \cf1 string\cf2  Name \{ \cf1 get\cf2 ; \cf1 set\cf2 ; \} = \cf1 string\cf2 .Empty;\par
+        [Column(\cf3 "password"\cf2 )]\par
+        \cf1 public\cf2  \cf1 string\cf2  Password \{ \cf1 get\cf2 ; \cf1 set\cf2 ; \} = \cf1 string\cf2 .Empty;\par
+        [Column(\cf3 "small_description"\cf2 )]\par
+        \cf1 public\cf2  \cf1 string\cf2  Small_Description \{ \cf1 get\cf2 ; \cf1 set\cf2 ; \} = \cf1 string\cf2 .Empty;\par
+    \}\par
+\}\cf0\kerning2\f0\fs22\cell\row 
+\pard\widctlpar\sa160\sl252\slmult1\par
+In the folder \ldblquote Controllers\rdblquote  create a new controller of type \ldblquote API Controller \endash  Empty\rdblquote . Name it \ldblquote UserController.cs\rdblquote\par
+\trowd\trgaph108\trleft-108\trbrdrl\brdrs\brdrw10 \trbrdrt\brdrs\brdrw10 \trbrdrr\brdrs\brdrw10 \trbrdrb\brdrs\brdrw10 \trpaddl108\trpaddr108\trpaddfl3\trpaddfr3
+\clbrdrl\brdrw10\brdrs\clbrdrt\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\clbrdrb\brdrw10\brdrs \cellx9514 
+\pard\intbl\widctlpar\cf1\kerning0\f2\fs19 using\cf2  Microsoft.AspNetCore.Mvc;\par
+\cf1 using\cf2  Microsoft.EntityFrameworkCore;\par
+\cf1 using\cf2  UsersLogInAPI.Data;\par
+\par
+\cf1 namespace\cf2  UsersLogInAPI.Controllers\par
+\{\par
+    [Route(\cf3 "api/[controller]"\cf2 )]\par
+    [ApiController]\par
+    \cf1 public\cf2  \cf1 class\cf2  \cf4 UserController\cf2  : ControllerBase\par
+    \{\par
+        \cf1 private\cf2  \cf1 readonly\cf2  DataContext _context;\par
+\par
+        \cf1 public\cf2  \cf4 UserController\cf2 (DataContext context)\par
+        \{\par
+            _context = context;\par
+        \}\par
+\par
+        [HttpGet]\par
+        \cf1 public\cf2  \cf1 async\cf2  Task<ActionResult<List<User>>> GetUsers()\par
+        \{\par
+            \cf1 return\cf2  Ok(\cf1 await\cf2  _context.Users.ToListAsync());\par
+            \par
+        \}\par
+    \}\par
+\}\cf0\kerning2\f0\fs22\cell\row 
+\pard\widctlpar\sa160\sl252\slmult1\par
+Run the solution, so Swagger will show the API methods work. In addition, run the GET method and retrieve the API address, since we need to copy it into the FrontEnd application. For this example, in my case, it is :  \ldblquote {{\field{\*\fldinst{HYPERLINK https://localhost:7268/api }}{\fldrslt{https://localhost:7268/api\ul0\cf0}}}}\f0\fs22\rdblquote    (NOTE: You can also find this string in the launchSettings.json/profiles/applicationUrl )\par
+Using NuGet, install the following packages:\par
+
+\pard{\pntext\f4\'B7\tab}{\*\pn\pnlvlblt\pnf4\pnindent0{\pntxtb\'B7}}\widctlpar\fi-360\li720\sa160\sl252\slmult1 Microsoft.EntityFrameworkCore\par
+{\pntext\f4\'B7\tab}Microsoft.EntityFrameworkCore.Design\par
+{\pntext\f4\'B7\tab}Npgsql.EntityFrameworkCore.PostgreSQL\par
+
+\pard\widctlpar\sa160\sl252\slmult1 In the project, create a folder \ldblquote Data\rdblquote . Inside that folder, create a class \ldblquote DataContext.cs\rdblquote\par
+\trowd\trgaph108\trleft-108\trbrdrl\brdrs\brdrw10 \trbrdrt\brdrs\brdrw10 \trbrdrr\brdrs\brdrw10 \trbrdrb\brdrs\brdrw10 \trpaddl108\trpaddr108\trpaddfl3\trpaddfr3
+\clbrdrl\brdrw10\brdrs\clbrdrt\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\clbrdrb\brdrw10\brdrs \cellx9514 
+\pard\intbl\widctlpar\cf1\kerning0\f2\fs19 using\cf2  Microsoft.EntityFrameworkCore;\par
+\par
+\cf1 namespace\cf2  UsersLogInAPI.Data\par
+\{\par
+    \cf1 public\cf2  \cf1 class\cf2  \cf4 DataContext\cf2  : DbContext\par
+    \{\par
+        \cf1 public\cf2  \cf4 DataContext\cf2 (DbContextOptions<DataContext> options) : \cf1 base\cf2 (options) \{ \}\par
+\par
+        \cf1 public\cf2  DbSet<User> Users => Set<User>();\par
+    \}\par
+\}\par
+\cf0\kerning2\f0\fs22\cell\row 
+\pard\widctlpar\sa160\sl252\slmult1\par
+Now we add the connection string to appsettings.json\par
+\trowd\trgaph108\trleft-108\trbrdrl\brdrs\brdrw10 \trbrdrt\brdrs\brdrw10 \trbrdrr\brdrs\brdrw10 \trbrdrb\brdrs\brdrw10 \trpaddl108\trpaddr108\trpaddfl3\trpaddfr3
+\clbrdrl\brdrw10\brdrs\clbrdrt\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\clbrdrb\brdrw10\brdrs \cellx9514 
+\pard\intbl\widctlpar\cf2\kerning0\f2\fs19\{\par
+  \cf5 "ConnectionStrings"\cf2 : \{\par
+    \cf5 "DefaultConnection"\cf2 : \cf3 "User ID =postgres;Password=root;Server=localhost;Port=5432;Database=Basic_CRUD_AngularDotNet; Integrated Security=true;Pooling=true;"\cf2\par
+  \},\par
+  \cf5 "Logging"\cf2 : \{\par
+    \cf5 "LogLevel"\cf2 : \{\par
+      \cf5 "Default"\cf2 : \cf3 "Information"\cf2 ,\par
+      \cf5 "Microsoft.AspNetCore"\cf2 : \cf3 "Warning"\cf2\par
+    \}\par
+  \},\par
+  \cf5 "AllowedHosts"\cf2 : \cf3 "*"\cf2\par
+\}\cf0\kerning2\f0\fs22\cell\row 
+\pard\widctlpar\sa160\sl252\slmult1\par
+Add DataContext and CORS exception to \ldblquote Program.cs\rdblquote . The port can be different, but you can find it by doing \ldblquote ng serve -o\ldblquote  in the frontEnd.\par
+\trowd\trgaph108\trleft-108\trbrdrl\brdrs\brdrw10 \trbrdrt\brdrs\brdrw10 \trbrdrr\brdrs\brdrw10 \trbrdrb\brdrs\brdrw10 \trpaddl108\trpaddr108\trpaddfl3\trpaddfr3
+\clbrdrl\brdrw10\brdrs\clbrdrt\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\clbrdrb\brdrw10\brdrs \cellx9514 
+\pard\intbl\widctlpar\cf1\kerning0\f2\fs19 using\cf2  Microsoft.EntityFrameworkCore;\par
+\cf1 using\cf2  UsersLogInAPI.Data;\par
+\par
+\cf1 var\cf2  builder = WebApplication.CreateBuilder(args);\par
+\par
+\cf6 // Add services to the container.\cf2\par
+\par
+builder.Services.AddControllers();\par
+\cf6 // Learn more about configuring Swagger/OpenAPI at {{\field{\*\fldinst{HYPERLINK https://aka.ms/aspnetcore/swashbuckle }}{\fldrslt{https://aka.ms/aspnetcore/swashbuckle\ul0\cf0}}}}\cf2\f2\fs19\par
+builder.Services.AddEndpointsApiExplorer();\par
+builder.Services.AddSwaggerGen();\par
+builder.Services.AddDbContext<DataContext>(options =>\par
+    \{\par
+        options.UseNpgsql(builder.Configuration.GetConnectionString(\cf3 "DefaultConnection"\cf2 ));\par
+    \}\par
+);\par
+builder.Services.AddCors(options => options.AddPolicy(\par
+    name: \cf3 "UsersLogInOrigins"\cf2 ,\par
+    policy =>\par
+    \{\par
+        policy.WithOrigins(\cf3 "http://localhost:4200"\cf2 ).AllowAnyMethod().AllowAnyHeader();\par
+    \}    \par
+    ));\par
+\par
+\cf1 var\cf2  app = builder.Build();\par
+\par
+\cf6 // Configure the HTTP request pipeline.\cf2\par
+\cf1 if\cf2  (app.Environment.IsDevelopment())\par
+\{\par
+    app.UseSwagger();\par
+    app.UseSwaggerUI();\par
+\}\par
+\par
+app.UseCors(\cf3 "UsersLogInOrigins"\cf2 );\par
+\par
+app.UseHttpsRedirection();\par
+\par
+app.UseAuthorization();\par
+\par
+app.MapControllers();\par
+\par
+app.Run();\par
+\cf0\kerning2\f0\fs22\cell\row 
+\pard\widctlpar\sa160\sl252\slmult1\par
+Now Run it at the same time as the FrontEnd!!\par
+This step is not necessary, but if you want to do a migration, it would be something like:\par
+\trowd\trgaph108\trleft-108\trbrdrl\brdrs\brdrw10 \trbrdrt\brdrs\brdrw10 \trbrdrr\brdrs\brdrw10 \trbrdrb\brdrs\brdrw10 \trpaddl108\trpaddr108\trpaddfl3\trpaddfr3
+\clbrdrl\brdrw10\brdrs\clbrdrt\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\clbrdrb\brdrw10\brdrs \cellx9514 
+\pard\intbl\widctlpar\sa160\sl252\slmult1 open Tools/NuGet Package Manager/Package Manager Console\par
+
+\pard\intbl\widctlpar Go to the root of the project ( cd .\\UsersLogInAPI\\UserLogInAPI). If you do a ls, you should have several files and folders, between them the appsettings.json. If you see it, you are in the correct place.\par
+Now execute the command:\par
+
+\pard\intbl{\pntext\f4\'B7\tab}{\*\pn\pnlvlblt\pnf4\pnindent0{\pntxtb\'B7}}\widctlpar\fi-360\li720 dotnet tool install --global dotnet-ef\par
+{\pntext\f4\'B7\tab}dotnet ef               (If you see the unicorn, everything is ok :)\par
+{\pntext\f4\'B7\tab}\lang1036 dotnet ef migrations add Initial\par
+
+\pard\intbl\widctlpar\par
+\lang1033\cell\row 
+\pard\widctlpar\sa160\sl252\slmult1\par
+\par
+
+\pard\kerning0\f3\par
+}
+ 

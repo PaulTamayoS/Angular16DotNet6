@@ -1,0 +1,43 @@
+Create the DB “Basic_CRUD_AngularDotNet”. With owner “postgres”:
+
+CREATE DATABASE "Basic_CRUD_AngularDotNet"
+    WITH
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    CONNECTION LIMIT = -1
+    IS_TEMPLATE = False;
+
+
+
+Create the table “test_users”:
+
+CREATE TABLE public.test_users
+(
+    id bigint  NOT NULL GENERATED ALWAYS AS IDENTITY,
+    name character varying NOT NULL,
+    password character varying NOT NULL,
+    small_description character varying,
+    PRIMARY KEY (id)
+);
+
+ALTER TABLE IF EXISTS public.test_users
+    OWNER to postgres;
+
+
+
+
+Add some mock data:
+
+INSERT INTO public.test_users(name, password, small_description)
+	VALUES ('user01', '1234', ':)');
+	
+INSERT INTO public.test_users(name, password, small_description)
+	VALUES ('user02', '1234', 'small_description02');
+
+INSERT INTO public.test_users(name, password, small_description)
+	VALUES ('user03', '4321', 'small_description03');
+	
+INSERT INTO public.test_users(name, password, small_description)
+	VALUES ('user04', 'zzzz', ':p');
+
+
