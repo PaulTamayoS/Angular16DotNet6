@@ -19,7 +19,6 @@ CREATE TABLE public.test_users
     small_description character varying,
     PRIMARY KEY (id)
 );
-
 ALTER TABLE IF EXISTS public.test_users
     OWNER to postgres;
 
@@ -29,14 +28,11 @@ ALTER TABLE IF EXISTS public.test_users
 Add some mock data:
 
 INSERT INTO public.test_users(name, password, small_description)
-	VALUES ('user01', '1234', ':)');
-	
+	VALUES ('user01', '1234', ':)');	
 INSERT INTO public.test_users(name, password, small_description)
 	VALUES ('user02', '1234', 'small_description02');
-
 INSERT INTO public.test_users(name, password, small_description)
-	VALUES ('user03', '4321', 'small_description03');
-	
+	VALUES ('user03', '4321', 'small_description03');	
 INSERT INTO public.test_users(name, password, small_description)
 	VALUES ('user04', 'zzzz', ':p');
 
