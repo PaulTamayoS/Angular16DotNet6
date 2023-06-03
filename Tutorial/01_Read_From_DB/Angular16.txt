@@ -23,7 +23,7 @@ If asked to install the “Angular Language Service”, click on install
 
 In src/app/models create a new file “users.ts”
 
-***-------------- users.ts ----------------***
+***--------------- users.ts -----------------***
 export class Users
 {
     id?: number;
