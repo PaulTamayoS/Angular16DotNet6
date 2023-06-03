@@ -23,8 +23,7 @@ If asked to install the “Angular Language Service”, click on install
 
 In src/app/models create a new file “users.ts”
 
-***---------- users.ts -------------***
-
+***-------------- users.ts ----------------***
 export class Users
 {
     id?: number;
@@ -32,8 +31,7 @@ export class Users
     password = "";
     small_description = "";
 }
-
-***----------end of users.ts---------------***
+***---------- end of users.ts ---------------***
 
 By using the terminal and by using the cd command, go to src/app/services. The create the service by:
 	ng g s users
