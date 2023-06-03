@@ -1,0 +1,138 @@
+Using Visual Studio Code, open the folder "Angular".
+
+Check if you have ng installed by typing in the terminal: 
+	>ng version
+
+If you don't, install it by going to https://nodejs.org/en
+
+Once that installed, in the terminal of VSCode, you should be able to run the command:
+	>npm install -g @angular/cli
+	>Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+
+To create the project:
+	>ng new UsersLogIn
+	//When asked to use routing, select yes
+	//When asked about the stylesheet, select CSS
+
+Go to UsersLogIn/src/app and create the folders "components", "models" and "services"
+
+Check if angular works correctly by:
+	>ng serve -o
+
+If asked to install the "Angular Language Service", click on install
+
+In src/app/models create a new file "users.ts"
+
+***----------------------------------- users.ts -------------------------------------***
+export class Users
+{
+	id?: number;
+	name = "";
+	password = "";
+	small_description = "";
+}
+***------------------------------ end of users.ts -----------------------------------***
+
+By using the terminal and by using the cd command, go to src/app/services. The create the service by:
+	>ng g s users
+
+***----------------------------------- users.service.ts -------------------------------------***
+import { Injectable } from '@angular/core';
+import { Users } from '../models/users';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment.development';
+import { Observable } from 'rxjs/internal/Observable';
+
+@Injectable({
+	providedIn: 'root'
+})
+export class UsersService {
+
+	private url = "User"
+
+	constructor(private http: HttpClient) { }
+
+	public getUser() : Observable< Users[]>
+	{   
+		return this.http.get<Users[]>(`${environment.apiUrl}/${this.url}`);
+	}
+}
+***------------------------------ end of users.service.ts -----------------------------------***
+
+If environment folder does not exist, add it by:
+	>ng generate environments
+
+Add the corresponding data to each one of the two environments
+
+***----------------------------------- environment.ts -------------------------------------***
+export const environment = 
+{
+    production: true, //Change for false in the dev environment file
+    apiUrl: "https://localhost:7268/api" //You might have a different port number
+};
+***------------------------------ end of environment.ts -----------------------------------***
+
+***----------------------------------- app.components.ts -------------------------------------***
+import { Component } from '@angular/core';
+import { Users } from './models/users';
+import { UsersService } from './services/users.service';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'UsersLogIn';
+  users: Users[] = [];
+
+  constructor(private userServices: UsersService) {}
+
+  ngOnInit() : void
+  {
+    this.userServices
+    .getUser()
+    .subscribe((result: Users[]) => (this.users = result) );
+  }
+}
+***------------------------------ end of app.components.ts -----------------------------------***
+
+***----------------------------------- app.components.html -------------------------------------***
+<table>
+	<thead>
+		<th>Name</th>
+		<th>Password</th>
+		<th>Description</th>
+	</thead>
+	<tbody>
+		<tr *ngFor="let user of users">
+			<td>{{ user.name }}</td>
+			<td>{{ user.password }}</td>
+			<td>{{ user.small_Description }}</td>
+		</tr>
+	</tbody>
+</table>
+***------------------------------ end of app.components.html -----------------------------------***
+
+***----------------------------------- app.module.ts -------------------------------------***
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+***------------------------------ end of app.module.ts -----------------------------------***
