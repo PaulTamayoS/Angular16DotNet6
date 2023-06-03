@@ -1,9 +1,9 @@
-Using Visual Studio Code, open the folder “Angular”.
+Using Visual Studio Code, open the folder "Angular".
 
 Check if you have ng installed by typing in the terminal: 
 	>ng version
 
-If you don’t, install it by going to https://nodejs.org/en
+If you don't, install it by going to https://nodejs.org/en
 
 Once that installed, in the terminal of VSCode, you should be able to run the command:
 	>npm install -g @angular/cli
@@ -14,22 +14,22 @@ To create the project:
 	//When asked to use routing, select yes
 	//When asked about the stylesheet, select CSS
 
-Go to UsersLogIn/src/app and create the folders “components”, “models” and “services”
+Go to UsersLogIn/src/app and create the folders "components", "models" and "services"
 
 Check if angular works correctly by:
 	>ng serve -o
 
-If asked to install the “Angular Language Service”, click on install
+If asked to install the "Angular Language Service", click on install
 
-In src/app/models create a new file “users.ts”
+In src/app/models create a new file "users.ts"
 
 ***----------------------------------- users.ts -------------------------------------***
 export class Users
 {
-    id?: number;
-    name = "";
-    password = "";
-    small_description = "";
+	id?: number;
+	name = "";
+	password = "";
+	small_description = "";
 }
 ***------------------------------ end of users.ts -----------------------------------***
 
