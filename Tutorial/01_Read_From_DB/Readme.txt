@@ -8,7 +8,6 @@ https://medium.com/@RobertKhou/getting-started-with-entity-framework-core-postgr
 https://www.youtube.com/watch?v=dtthbiP3SE0
 
 
+Create two folders, one for the frontend and another for the backend. Name them "Angular16" and "DotNet6".
 
-Create two folders, one for the frontend and another for the backend. Name them “Angular16” and “DotNet6”.
-
-Then do what is written in the documents “DB.docx”, “DotNet6.docx”, and “Angular16.docx”
+Then do what is written in the documents "DB.txt", "DotNet6.txt", and "Angular16.txt"
