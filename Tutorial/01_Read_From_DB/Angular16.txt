@@ -6,18 +6,18 @@ Check if you have ng installed by typing in the terminal:
 If you don’t, install it by going to https://nodejs.org/en
 
 Once that installed, in the terminal of VSCode, you should be able to run the command:
-	npm install -g @angular/cli
-	Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+	>npm install -g @angular/cli
+	>Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 
 To create the project:
-	ng new UsersLogIn
+	>ng new UsersLogIn
 	//When asked to use routing, select yes
 	//When asked about the stylesheet, select CSS
 
 Go to UsersLogIn/src/app and create the folders “components”, “models” and “services”
 
 Check if angular works correctly by:
-	ng serve -o
+	>ng serve -o
 
 If asked to install the “Angular Language Service”, click on install
 
@@ -34,7 +34,7 @@ export class Users
 ***------------------------------ end of users.ts -----------------------------------***
 
 By using the terminal and by using the cd command, go to src/app/services. The create the service by:
-	ng g s users
+	>ng g s users
 
 
 ***----------------------------------- users.service.ts -------------------------------------***
@@ -62,7 +62,7 @@ export class UsersService {
 
 
 If environment folder does not exist, add it by:
-	ng generate environments
+	>ng generate environments
 
 Add the corresponding data to each one of the two environments
 
