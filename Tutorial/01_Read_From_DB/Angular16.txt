@@ -44,18 +44,18 @@ import { environment } from 'src/environments/environment.development';
 import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 export class UsersService {
 
-  private url = "User"
+	private url = "User"
 
-  constructor(private http: HttpClient) { }
+	constructor(private http: HttpClient) { }
 
-  public getUser() : Observable< Users[]>
-  {   
-    return this.http.get<Users[]>(`${environment.apiUrl}/${this.url}`);
-  }
+	public getUser() : Observable< Users[]>
+	{   
+		return this.http.get<Users[]>(`${environment.apiUrl}/${this.url}`);
+	}
 }
 ***------------------------------ end of users.service.ts -----------------------------------***
 
@@ -99,18 +99,18 @@ export class AppComponent {
 
 ***----------------------------------- app.components.html -------------------------------------***
 <table>
-  <thead>
-    <th>Name</th>
-    <th>Password</th>
-    <th>Description</th>
-  </thead>
-  <tbody>
-    <tr *ngFor="let user of users">
-      <td>{{ user.name }}</td>
-      <td>{{ user.password }}</td>
-      <td>{{ user.small_Description }}</td>
-    </tr>
-  </tbody>
+	<thead>
+		<th>Name</th>
+		<th>Password</th>
+		<th>Description</th>
+	</thead>
+	<tbody>
+		<tr *ngFor="let user of users">
+			<td>{{ user.name }}</td>
+			<td>{{ user.password }}</td>
+			<td>{{ user.small_Description }}</td>
+		</tr>
+	</tbody>
 </table>
 ***------------------------------ end of app.components.html -----------------------------------***
 
