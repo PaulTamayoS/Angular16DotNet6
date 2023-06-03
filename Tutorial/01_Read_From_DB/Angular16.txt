@@ -36,7 +36,6 @@ export class Users
 By using the terminal and by using the cd command, go to src/app/services. The create the service by:
 	>ng g s users
 
-
 ***----------------------------------- users.service.ts -------------------------------------***
 import { Injectable } from '@angular/core';
 import { Users } from '../models/users';
@@ -60,7 +59,6 @@ export class UsersService {
 }
 ***------------------------------ end of users.service.ts -----------------------------------***
 
-
 If environment folder does not exist, add it by:
 	>ng generate environments
 
@@ -73,7 +71,6 @@ export const environment =
     apiUrl: "https://localhost:7268/api"
 };
 ***------------------------------ end of environment.ts -----------------------------------***
-
 
 ***----------------------------------- app.components.ts -------------------------------------***
 import { Component } from '@angular/core';
@@ -100,7 +97,6 @@ export class AppComponent {
 }
 ***------------------------------ end of app.components.ts -----------------------------------***
 
-
 ***----------------------------------- app.components.html -------------------------------------***
 <table>
   <thead>
@@ -117,7 +113,6 @@ export class AppComponent {
   </tbody>
 </table>
 ***------------------------------ end of app.components.html -----------------------------------***
-
 
 ***----------------------------------- app.module.ts -------------------------------------***
 import { NgModule } from '@angular/core';
