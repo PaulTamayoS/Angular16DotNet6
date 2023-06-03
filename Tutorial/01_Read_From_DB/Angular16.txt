@@ -1,7 +1,7 @@
 Using Visual Studio Code, open the folder “Angular”.
 
 Check if you have ng installed by typing in the terminal: 
-	ng version
+	>ng version
 
 If you don’t, install it by going to https://nodejs.org/en
 
