@@ -23,7 +23,7 @@ If asked to install the “Angular Language Service”, click on install
 
 In src/app/models create a new file “users.ts”
 
-***------------------------- users.ts ---------------------------***
+***----------------------------------- users.ts -------------------------------------***
 export class Users
 {
     id?: number;
@@ -31,13 +31,13 @@ export class Users
     password = "";
     small_description = "";
 }
-***-------------------- end of users.ts -------------------------***
+***------------------------------ end of users.ts -----------------------------------***
 
 By using the terminal and by using the cd command, go to src/app/services. The create the service by:
 	ng g s users
 
-***---------- users.service.ts ---------
 
+***----------------------------------- users.service.ts -------------------------------------***
 import { Injectable } from '@angular/core';
 import { Users } from '../models/users';
 import { HttpClient } from '@angular/common/http';
@@ -58,27 +58,24 @@ export class UsersService {
     return this.http.get<Users[]>(`${environment.apiUrl}/${this.url}`);
   }
 }
+***------------------------------ end of users.service.ts -----------------------------------***
 
----------------end of users.service.ts ---------------------***
 
 If environment folder does not exist, add it by:
 	ng generate environments
 
 Add the corresponding data to each one of the two environments
 
-
+***----------------------------------- environment.ts -------------------------------------***
 export const environment = 
 {
     production: true, //Change for false in the dev environment file
     apiUrl: "https://localhost:7268/api"
 };
+***------------------------------ end of environment.ts -----------------------------------***
 
 
-
-
-App.Components.ts
-
-
+***----------------------------------- app.components.ts -------------------------------------***
 import { Component } from '@angular/core';
 import { Users } from './models/users';
 import { UsersService } from './services/users.service';
@@ -101,12 +98,10 @@ export class AppComponent {
     .subscribe((result: Users[]) => (this.users = result) );
   }
 }
+***------------------------------ end of app.components.ts -----------------------------------***
 
 
-
-App.Componenet.html
-
-
+***----------------------------------- app.components.html -------------------------------------***
 <table>
   <thead>
     <th>Name</th>
@@ -121,13 +116,10 @@ App.Componenet.html
     </tr>
   </tbody>
 </table>
+***------------------------------ end of app.components.html -----------------------------------***
 
 
-
-
-App.module.ts
-
-
+***----------------------------------- app.module.ts -------------------------------------***
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
@@ -148,3 +140,4 @@ import { AppComponent } from './app.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+***------------------------------ end of app.module.ts -----------------------------------***
