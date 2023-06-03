@@ -1,15 +1,15 @@
 Using Visual Studio 2022 Community
 
 
-Create a new project “ASP.NET Core Web API”.
+Create a new project "ASP.NET Core Web API".
 
-Name it “UsersLogInAPI”, and in location, select the folder “DotNet6” that we created earlier. Click on next. Select the Framework “.NET 6.0”. Check “Use controllers” and “Enable OpenAPI support”. Click on the button create.
+Name it "UsersLogInAPI", and in location, select the folder "DotNet6" that we created earlier. Click on next. Select the Framework ".NET 6.0". Check "Use controllers" and "Enable OpenAPI support". Click on the button create.
 
-You can eliminate the example class “WeatherForecast.cs” and the controller “WeatherForecastController.cs”
+You can eliminate the example class "WeatherForecast.cs" and the controller "WeatherForecastController.cs"
 
-In the project “UserLogInAPI”, create a new class “User”
+In the project "UserLogInAPI", create a new class "User"
 
-
+***----------------------------------- User.cs -------------------------------------***
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace UsersLogInAPI
@@ -27,13 +27,11 @@ namespace UsersLogInAPI
         public string Small_Description { get; set; } = string.Empty;
     }
 }
+***------------------------------ end of User.cs -----------------------------------***
 
+In the folder "Controllers" create a new controller of type "API Controller – Empty". Name it "UserController.cs"
 
-
-
-In the folder “Controllers” create a new controller of type “API Controller – Empty”. Name it “UserController.cs”
-
-
+***----------------------------------- UserController.cs -------------------------------------***
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using UsersLogInAPI.Data;
@@ -59,19 +57,19 @@ namespace UsersLogInAPI.Controllers
         }
     }
 }
+***------------------------------ end of UserController.cs -----------------------------------***
 
 
-
-Run the solution, so Swagger will show the API methods work. In addition, run the GET method and retrieve the API address, since we need to copy it into the FrontEnd application. For this example, in my case, it is :  “https://localhost:7268/api”   (NOTE: You can also find this string in the launchSettings.json/profiles/applicationUrl )
+Run the solution, so Swagger will show the API methods work. In addition, run the GET method and retrieve the API address, since we need to copy it into the FrontEnd application. For this example, in my case, it is :  "https://localhost:7268/api"   (NOTE: You can also find this string in the launchSettings.json/profiles/applicationUrl )
 
 Using NuGet, install the following packages:
 * Microsoft.EntityFrameworkCore
 * Microsoft.EntityFrameworkCore.Design
 * Npgsql.EntityFrameworkCore.PostgreSQL
 
-In the project, create a folder “Data”. Inside that folder, create a class “DataContext.cs”
+In the project, create a folder "Data". Inside that folder, create a class "DataContext.cs"
 
-
+***----------------------------------- DataContext.cs -------------------------------------***
 using Microsoft.EntityFrameworkCore;
 
 namespace UsersLogInAPI.Data
@@ -83,12 +81,11 @@ namespace UsersLogInAPI.Data
         public DbSet<User> Users => Set<User>();
     }
 }
-
-
+***------------------------------ end of DataContext.cs -----------------------------------***
 
 Now we add the connection string to appsettings.json
 
-
+***----------------------------------- appsettings.json -------------------------------------***
 {
   "ConnectionStrings": {
     "DefaultConnection": "User ID =postgres;Password=root;Server=localhost;Port=5432;Database=Basic_CRUD_AngularDotNet; Integrated Security=true;Pooling=true;"
@@ -101,11 +98,11 @@ Now we add the connection string to appsettings.json
   },
   "AllowedHosts": "*"
 }
+***------------------------------ end of appsettings.json -----------------------------------***
 
+Add DataContext and CORS exception to "Program.cs". The port can be different, but you can find it by doing "ng serve -o" in the frontEnd.
 
-Add DataContext and CORS exception to “Program.cs”. The port can be different, but you can find it by doing “ng serve -o“ in the frontEnd.
-
-
+***----------------------------------- Program.cs -------------------------------------***
 using Microsoft.EntityFrameworkCore;
 using UsersLogInAPI.Data;
 
@@ -148,13 +145,13 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
-
+***------------------------------ end of Program.cs -----------------------------------***
 
 
 Now Run it at the same time as the FrontEnd!!
 
 
-
+***------------------------------------------------------------------------***
 This step is not necessary, but if you want to do a migration, it would be something like:
 
 open Tools/NuGet Package Manager/Package Manager Console
@@ -162,8 +159,8 @@ open Tools/NuGet Package Manager/Package Manager Console
 Go to the root of the project ( cd .\UsersLogInAPI\UserLogInAPI). If you do a ls, you should have several files and folders, between them the appsettings.json. If you see it, you are in the correct place.
 Now execute the command:
 
-* dotnet tool install --global dotnet-ef
-* dotnet ef               (If you see the unicorn, everything is ok :)
-* dotnet ef migrations add Initial
-
+	>dotnet tool install --global dotnet-ef
+	>dotnet ef               (If you see the unicorn, everything is ok :)
+	>dotnet ef migrations add Initial
+***------------------------------------------------------------------------***
 
