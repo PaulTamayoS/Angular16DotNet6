@@ -1,4 +1,4 @@
-Create the DB “Basic_CRUD_AngularDotNet”. With owner “postgres”:
+Create the DB "Basic_CRUD_AngularDotNet". With owner "postgres":
 
 ***------------------------------------------------------------------------***
 CREATE DATABASE "Basic_CRUD_AngularDotNet"
@@ -23,8 +23,6 @@ CREATE TABLE public.test_users
 ALTER TABLE IF EXISTS public.test_users
     OWNER to postgres;
 ***------------------------------------------------------------------------***
-
-
 
 Add some mock data:
 
