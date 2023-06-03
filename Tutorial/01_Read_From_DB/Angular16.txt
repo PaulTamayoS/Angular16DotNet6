@@ -68,7 +68,7 @@ Add the corresponding data to each one of the two environments
 export const environment = 
 {
     production: true, //Change for false in the dev environment file
-    apiUrl: "https://localhost:7268/api"
+    apiUrl: "https://localhost:7268/api" //You might have a different port number
 };
 ***------------------------------ end of environment.ts -----------------------------------***
 
